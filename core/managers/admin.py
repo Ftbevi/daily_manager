@@ -1,6 +1,5 @@
 from django.contrib import admin
 
-from .models import Expense, Revenue
+from .models import Order
 
-admin.site.register(Expense)
-admin.site.register(Revenue)
+admin.site.register(Order)
