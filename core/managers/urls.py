@@ -5,5 +5,5 @@ from .views import RegisterOrderView
 app_name = 'orders'
 
 urlpatterns = [
-    path('', RegisterOrderView.as_view(), name='order_register'),
+    path('register', RegisterOrderView.as_view(), name='order_register'),
 ]
