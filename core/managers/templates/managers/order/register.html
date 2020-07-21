@@ -1,0 +1,17 @@
+<h1>Register Order</h1>
+{% if data %}
+    <p>
+        was successfully.
+    </p>
+{% else %}
+    <form method="post">
+        {% for field in form %}
+        <div>
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+        </div>
+        {% endfor %}
+        {% csrf_token %}
+        <input type="submit" value="Send">
+    </form>
+{% endif %}
