@@ -1,6 +1,5 @@
 # Files
 db.sqlite3
 # Folder
-.env/
 **/__pycache__/**
 .vscode/
