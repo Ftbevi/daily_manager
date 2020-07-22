@@ -1,0 +1,39 @@
+{% extends "layout/index.html" %}
+
+{% load static %}
+
+{% block app %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+    <!-- Page Heading -->
+    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">List Order</h1>
+    </div>
+
+    <div class="card">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Value</th>
+                    <th scope="col">Type</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in object_list %}
+                <tr>
+                    <td>{{ order.name }}</td>
+                    <td>{{ order.user.username }}</td>
+                    <td>{{ order.value }}</td>
+                    <td>{{ order.type_order }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+
+{% endblock %}

@@ -4,6 +4,8 @@
 
 {% block app %}
 
+<link href="{% static 'managers/css/register.css' %}" rel="stylesheet" type="text/css">
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -12,38 +14,56 @@
         <h1 class="h3 mb-0 text-gray-800">Register Order</h1>
     </div>
 
-    {% if data %}
-    <p>
-        was successfully.
-    </p>
-    {% else %}
-
     <div class="card">
         <div class="card-body">
-            <form method="post">
-                {% for field in form %}
-                <div class="form-group">
-                    <label for="exampleInputEmail1">{{ field.label_tag }}</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                        placeholder="Enter email">
-                </div>
-                <div>
-                    {{ field.errors }}
-                    <!-- {{ field.label_tag }} {{ field }} -->
-                </div>
-                {% endfor %}
+            <form method="post" class="form-group">
                 {% csrf_token %}
 
-                <button type="submit" class="btn btn-primary">Save</button>
+                {{ form.non_field_errors }}
+                <div class="form-group">
+                    {{ form.name.errors }}
+                    <label for="{{ form.name.id_for_label }}">{{ form.name.label_tag }}</label>
+                    {{ form.name }}
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <div class="form-group">
+                            {{ form.value.errors }}
+                            <label for="{{ form.value.id_for_label }}">{{ form.value.label_tag }}</label>
+                            {{ form.value }}
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <div class="form-group">
+                            {{ form.type_order.errors }}
+                            <label for="{{ form.type_order.id_for_label }}">{{ form.type_order.label_tag }}</label>
+                            {{ form.type_order }}
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <div class="form-group">
+                            {{ form.user.errors }}
+                            <label for="{{ form.user.id_for_label }}">{{ form.user.label_tag }}</label>
+                            {{ form.user }}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    {{ form.description.errors }}
+                    <label for="{{ form.description.id_for_label }}">{{ form.description.label_tag }}</label>
+                    {{ form.description }}
+                </div>
+
+                <button type="submit" class="btn btn-primary register-save">Save</button>
             </form>
         </div>
     </div>
-    {% endif %}
 
 </div>
 <!-- /.container-fluid -->
-
-</div>
-<!-- End of Main Content -->
 
 {% endblock %}
