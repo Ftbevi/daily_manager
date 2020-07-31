@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  dailymanager:
+  web:
     image: dailymanager
     build:
       context: .
@@ -21,3 +21,5 @@ services:
       - POSTGRES_USER=daily_manager
       - POSTGRES_PASSWORD=daily_manager
       - POSTGRES_DB=daily_manager
+    volumes:
+      - ../data/postgres/data:/var/lib/postgresql/data
