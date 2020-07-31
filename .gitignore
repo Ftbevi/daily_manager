@@ -1,5 +1,6 @@
 # Files
 db.sqlite3
 # Folder
+data/
 **/__pycache__/**
 .vscode/
