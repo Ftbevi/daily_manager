@@ -1,3 +1,16 @@
-.register-save {
-    float: right;
+.card {
+    margin-bottom: 10px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add-order {
+    color: #fff;
+    background-color: #1dbc60;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add-order:hover {
+    color: #fff;
+    background: #148343;
+    border-color: #148343;
 }
