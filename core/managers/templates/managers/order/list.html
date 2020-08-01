@@ -8,45 +8,58 @@
 
 <!-- Begin Page Content -->
 <div class="container-fluid">
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Orders</h1>
-        <div>
-            <a class="btn btn-filter">
-                <svg width="1.25em" height="1.25em" viewBox="0 0 16 16" class="bi bi-filter" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
-                </svg>
-            </a>
-            <a href="register" class="btn btn-primary btn-add-order">
-                <i class="fas fa-fw fa-plus"></i>
-            </a>
+    
+    {% if object_list %}
+        <!-- Page Heading -->
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800">Orders</h1>
+            <div>
+                <a class="btn btn-filter">
+                    <svg width="1.25em" height="1.25em" viewBox="0 0 16 16" class="bi bi-filter" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                    </svg>
+                </a>
+                <a href="register" class="btn btn-add-order">
+                    <i class="fas fa-fw fa-plus"></i>
+                </a>
+            </div>
         </div>
-        <!-- <button type="button" class="btn btn-primary">
-        </button> -->
-    </div>
+        <div class="card">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Value</th>
+                        <th scope="col">Type</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in object_list %}
+                    <tr>
+                        <td>{{ order.name }}</td>
+                        <td>{{ order.user.username }}</td>
+                        <td>{{ order.value }}</td>
+                        <td>{{ order.type_order }}</td>
+                        <td>
+                            <i class="fas fa-fw fa-trash"></i>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% else %}
+        <div class="no-orders">
+            <h1>No Orders.</h1>
+            <p>No have ordes. Then you can add order just clicking and Add Order button.</p>
+            <p>
+                <a href="/orders/register" class="btn btn-lg btn-add-order">Add Order</a>
+            </p>
+        </div>
+    {% endif %}
 
-    <div class="card">
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">User</th>
-                    <th scope="col">Value</th>
-                    <th scope="col">Type</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for order in object_list %}
-                <tr>
-                    <td>{{ order.name }}</td>
-                    <td>{{ order.user.username }}</td>
-                    <td>{{ order.value }}</td>
-                    <td>{{ order.type_order }}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
 
 </div>
 <!-- /.container-fluid -->

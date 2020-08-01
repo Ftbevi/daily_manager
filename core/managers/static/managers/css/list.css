@@ -3,6 +3,34 @@
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 }
 
+.btn-filter:hover {
+    background: #cccccc;
+    border-color: #cccccc;
+}
+
 .btn-add-order {
+    color: #fff;
+    background-color: #1dbc60;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-add-order:hover {
+    color: #fff;
+    background: #148343;
+    border-color: #148343;
+}
+
+.card {
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+i.fa-trash {
+    margin-top: 0.25em;
+    margin-right: 0.25em;
+    float: right;
+}
+
+.no-orders {
+    margin-top: 10%;
+    text-align: center;
 }
